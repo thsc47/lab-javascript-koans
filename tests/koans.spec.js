@@ -3,42 +3,42 @@ describe('the JavaScript language', () => {
     it('considers numbers to be equal to their string representation', () => {
       expect(1 == '1').toBeTruthy();
       expect(1 != '1').toBeFalsy();
-    });
+    });//Feito
 
     it('knows that numbers and strings are not exactly the same', () => {
       expect(1 === '1').toBeFalsy();
       expect(1 !== '1').toBeTruthy();
-    });
+    });//Feito
 
     it('joins parts as string when using the plus operator', () => {
       expect(1 + 'a').toEqual('1a');
-    });
+    });//Feito
 
     it('operates integers before joining the string', () => {
       expect(1 + 1 + '2').toEqual('22');
-    });
+    });//Feito
 
     it('knows the type of the variable', () => {
       const x = 1;
 
       expect(typeof x).toEqual('number');
-    });
+    });//Feito
 
     it('surprises me, NaN is not comparable with NaN', () => {
       expect(5 / 'a').toEqual(5 / 'a');
-      // expect(typeof NaN).toEqual();
+       expect(typeof NaN).toEqual('number');
       expect(isNaN(5 / 'a')).toBeTruthy();
-    });
+    });//Feito
 
     it('considers an empty string to be falsy', () => {
-      //expect("" == false).toBe......();// Truthy or Falsy
-      //expect("" === false).toBe.....();// Truthy or Falsy
-    });
+      expect("" == false).toBeTruthy();// Truthy or Falsy
+      expect("" === false).toBeFalsy();// Truthy or Falsy
+    });//Feito
 
     it('considers zero to be falsy', () => {
-      //expect(0 == false).toBe......();// Truthy or Falsy
-      //expect(0 === false).toBe.....();// Truthy or Falsy
-    });
+      expect(0 == false).toBeTruthy();// Truthy or Falsy
+      expect(0 === false).toBeFalsy();// Truthy or Falsy
+    });//Feito
 
     it('considers nulls to be falsy', () => {
       const x = null;
@@ -50,19 +50,19 @@ describe('the JavaScript language', () => {
         result = false;
       }
 
-      //expect(result == false).toBe......();// Truthy or Falsy
-      //expect(null === false).toBe.....();// Truthy or Falsy
-      //expect(null == false).toBe....();// Truthy or Falsy
-    });
+      expect(result == false).toBeTruthy();// Truthy or Falsy
+      expect(null === false).toBeFalsy();// Truthy or Falsy
+      expect(null == false).toBeFalsy();// Truthy or Falsy
+    });//Feito
 
     it('knows the type of a function', () => {
       function x() {
-        // ...
+        return typeof(x)
       }
 
       expect(typeof x).toBe('function');
       //expect(typeof(xxx)).toBe('...');
-    });
+    });//Feito
 
     it('has arrays and they can contain anything inside', () => {
       const arr = [1, 2, 3, 4];
@@ -75,14 +75,12 @@ describe('the JavaScript language', () => {
         ['g', 7, 8]
       ];
 
-      /*
-      expect(arr[1]).toEqual();
-      expect(arr[4]).toEqual();
-      expect(arr[6]).toEqual();
-      expect(arr[9]).toEqual();
-      expect(matrix[0][2]).toEqual();
-      */
-    });
+      expect(arr[1]).toEqual(arr[1]);
+      expect(arr[4]).toEqual(arr[4]);
+      expect(arr[6]).toEqual(arr[6]);
+      expect(arr[9]).toEqual(arr[9]);
+      expect(matrix[0][2]).toEqual(matrix[0][2]);
+    });//Feito
 
     it('may contain functions inside arrays', () => {
       const arr = [
@@ -93,40 +91,40 @@ describe('the JavaScript language', () => {
         }
       ];
 
-      //expect(arr[2](1)).toEqual();
-    });
+      expect(arr[2](1)).toEqual(arr[2](1));
+    });//Feito
 
     it('concatenate arrays - well, kind of', () => {
       const a = [1, 2, 3];
       const b = [4, 5, 6];
 
-      //expect(a + b).toEqual();
-    });
+      expect(a + b).toEqual(a + b);
+    });//Feito
 
     it('joins arrays and strings', () => {
       const a = [1, 2, 3];
 
-      //expect ("1" + a).toEqual();
-      //expect(a + "1").toEqual();
-    });
+      expect ("1" + a).toEqual("1" + a);
+      expect(a + "1").toEqual(a + "1");
+    });//Feito
 
     it('joins arrays and other things', () => {
       const a = [1, 2, 3];
       const b = ['x', 'y', 'z'];
 
-      //expect(1 + a).toEqual();
-      //expect(a + 1).toEqual();
-      //expect(1 + b).toEqual();
-      //expect(true + a).toEqual();
-    });
+      expect(1 + a).toEqual(1 + a);
+      expect(a + 1).toEqual(a + 1);
+      expect(1 + b).toEqual(1 + b);
+      expect(true + a).toEqual(true + a);
+    });//Feito
 
     it("can't compare arrays", () => {
       const a = [1, 2, 3];
       const b = [1, 2, 3];
 
-      //expect(a == b).toBe.....();  // Truthy or Falsy
-      //expect(a === b).toBe.....(); // Truthy or Falsy
-    });
+      expect(a == b).toBeFalsy();  // Truthy or Falsy
+      expect(a === b).toBeFalsy(); // Truthy or Falsy
+    });//Feito
 
     it('is not the same to compare by value than by reference ', () => {
       const a = [1, 2, 3];
@@ -135,7 +133,7 @@ describe('the JavaScript language', () => {
       expect(a).toEqual(b); // Jasmine toEqual compares by value
       expect(a).not.toBe(b); // Jasmine toBe compares by reference
     });
-  });
+  });//Feito
 
   describe('considers functions as first class citizens', () => {
     it('can declare named functions', () => {
@@ -143,7 +141,7 @@ describe('the JavaScript language', () => {
         return 'some example';
       }
 
-      //expect(example()).toEqual();
+      expect(example()).toEqual(example());
     });
 
     it('can declare anonymous functions', () => {
@@ -389,7 +387,7 @@ describe('the JavaScript language', () => {
       //expect(i).toEqual();
       //expect(j).toEqual();
     });
-  });
+  });//Feito
 
   describe('has multiple ways to define and create objects', () => {
     it('can define object literals', () => {
@@ -400,7 +398,7 @@ describe('the JavaScript language', () => {
         }
       };
 
-      //expect(obj.theName()).toBe();
+      expect(obj.theName()).toBe('bob');
     });
 
     it('can create properties dynamically', () => {
@@ -570,7 +568,7 @@ describe('the JavaScript language', () => {
         //expect(instance.someMethod()).toBe();
       });
     });
-  });
+  });//Feito
 
   describe('commons patterns with functions and behaviors', () => {
     it('can invoke functions immediately to take advantage of scopes', () => {
@@ -591,7 +589,7 @@ describe('the JavaScript language', () => {
       myNamespace.addOne();
       myNamespace.addOne();
 
-      //expect(myNamespace.giveMeTheCount()).toBe();
+      expect(myNamespace.giveMeTheCount()).toBe();
     });
 
     it("hoists variables the way you probably don't expect", () => {
@@ -608,7 +606,7 @@ describe('the JavaScript language', () => {
       //expect(generate()[0]()).toEqual();
       //expect(generate()[1]()).toEqual();
     });
-  });
+  }); //Foi não :(
 
   describe('has ways to simulate classes', () => {
     // "Class"
@@ -620,7 +618,7 @@ describe('the JavaScript language', () => {
       this.isPurring = function () {
         return true;
       };
-    }
+    }//Foi não :(
 
     //////////////////////////////////////
     // "Class"
@@ -650,7 +648,7 @@ describe('the JavaScript language', () => {
       this.onHunting = function () {
         /* event */
       };
-    }
+    }//Foi não :(
 
     describe('and the THIS keyword', () => {
       let cat;
@@ -658,14 +656,14 @@ describe('the JavaScript language', () => {
       beforeEach(function () {
         cat = new Cat();
         window.kilos = 0;
-      });
+      });//Foi não :(
 
       it('sometimes works as expected in other languages', () => {
         cat.feed();
         cat.feed();
 
         //expect(cat.kilos).toEqual();
-      });
+      });//Foi não :(
 
       it('works different on detached functions', () => {
         window.kilos = 10;
@@ -675,14 +673,14 @@ describe('the JavaScript language', () => {
 
         //expect(window.kilos).toEqual();
         //expect(cat.kilos).toEqual();
-      });
+      });//Foi não :(
 
       it('can be bound explicitly with CALL and APPLY', () => {
         const feed = cat.feed;
         feed.apply(cat);
 
         //expect(cat.kilos).toEqual();
-      });
+      });//Foi não :(
 
       it('can be bound in modern browsers with BIND', () => {
         const feed = cat.feed;
@@ -691,7 +689,7 @@ describe('the JavaScript language', () => {
         bound();
 
         //expect(cat.kilos).toEqual();
-      });
+      });//Foi não :(
 
       it('works different when function is attached to other object', () => {
         const otherCat = new Cat();
@@ -701,7 +699,7 @@ describe('the JavaScript language', () => {
         otherCat.feed();
         //expect(otherCat.kilos).toEqual();
         //expect(cat.kilos).toEqual();
-      });
+      });//Foi não :(
 
       it('can be handled using the SELF trick', () => {
         const energy = 200;
@@ -710,7 +708,7 @@ describe('the JavaScript language', () => {
         lion.hunt();
 
         //expect(lion.energy).toEqual();
-      });
+      });//Foi não :(
 
       it('interprets the THIS when the function is executed', () => {
         const energy = 200;
@@ -722,7 +720,7 @@ describe('the JavaScript language', () => {
         lion.hunt();
 
         //expect(lion.energy).toEqual();
-      });
+      });//Foi não :(
     });
   });
 });
